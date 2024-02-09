@@ -1,0 +1,96 @@
+<!-- upload.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>G-26 File Upload</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa; /* Background color (light gray) */
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        section {
+            background-color: #ffffff; /* Form background color (white) */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            text-align: center;
+        }
+
+        button {
+            background-color: #007bff; /* Button background color (blue) */
+            color: #fff; /* Button text color (white) */
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0056b3; /* Button hover color (darker blue) */
+        }
+
+        footer {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1 style="color: #007bff;">G-26 File Upload</h1>
+    </header>
+
+    <section>
+        <h2>Upload File</h2>
+        {% if upload_success %}
+            <p style="color: #28a745;">File uploaded successfully!</p>
+        {% endif %}
+
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form }}
+            {% for error in form.file.errors %}
+                <p style="color: red;">{{ error }}</p>
+            {% endfor %}
+            <button type="submit">Upload File</button>
+        </form>
+
+        <!-- Additional Information -->
+        <p style="margin-top: 10px;">This form only accepts CSV and Excel files. Please make sure your file is in the correct format.</p>
+    </section>
+
+    <footer>
+        <p>Project Members:</p>
+        <ul>
+            <li>Dheerajkumar Jakapure</li>
+            <li>Umesh Kumbhar</li>
+            <li>Ghansham Dalvi</li>
+            <li>Mustakeem Momin</li>
+            <li>Akshay Bavaskar</li>
+        </ul>
+
+        <p>Project Mentor: Kantilal Chandre</p>
+    </footer>
+
+</body>
+</html>
+
