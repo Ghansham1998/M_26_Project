@@ -88,7 +88,7 @@ DATABASES = {
         "NAME": "prasnndb",
         "USER": "postgres",
         "PASSWORD": "pass",
-        "HOST": "localhost",
+        "HOST": "ghanshamlocalhost",
         "PORT": "5432",
     }
 }
